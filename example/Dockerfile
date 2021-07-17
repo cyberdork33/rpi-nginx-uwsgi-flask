@@ -1,5 +1,4 @@
-FROM cseelye/rpi-nginx-uwsgi-flask
-MAINTAINER Carl Seelye <cseelye@gmail.com>
+FROM cyberdork33/rpi-nginx-uwsgi-flask
 
 COPY exampleapp /app
-RUN pip install -U -r /app/requirements.txt
+RUN pip3 install -U -r /app/requirements.txt

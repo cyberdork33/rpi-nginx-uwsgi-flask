@@ -1,10 +1,7 @@
 # rpi-nginx-uwsgi-flask
-Docker container for hosting python Flask/Flask-RESTPlus apps on Raspberry Pi using nginx and uWSGI.  
-* Only python 2.7 is installed; if you want python 3 you will need to add it.
+Docker container for hosting python Flask apps on Raspberry Pi using nginx and uWSGI.
+* This relies on python3.
 * nginx is only set up to serve on port 80; if you want SSL (which you should) either drop in a new app.conf nginx config, or run an SSL proxy in front of it.
-
-Image on Docker Hub: https://hub.docker.com/r/cseelye/rpi-nginx-uwsgi-flask/  
-Source on Github: https://github.com/cseelye/rpi-nginx-uwsgi-flask  
 
 ### Building on Raspberri Pi
 This image is set up for building on an x86_64 machine or automated building on dockerhub, so it will not build out of the box on a Raspberry Pi! Use these commands to backup the dockerfile and then modify it to build on a Pi:
@@ -30,7 +27,7 @@ To create a container for your Flask app:
 
 2. Make sure your application prerequisites are saved in a standard ```requirements.txt``` in your application directory.
 
-3. Copy your application directory to a subdirectory of the docker build directory.  
+3. Copy your application directory to a subdirectory of the docker build directory.
 
 4. Create a Dockerfile to build a container from this one, with your app and requirements:
 
@@ -43,7 +40,7 @@ To create a container for your Flask app:
 6. Build and run your container, forwarding the container port 80 to wherever you want it on your container host. For instance, to forward to port 8080:
 
     ```Shell
-    docker build -t myapp .  
+    docker build -t myapp .
     docker run -p 8080:80 myapp
     ```
 
