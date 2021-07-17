@@ -4,12 +4,7 @@ Docker container for hosting python Flask apps on Raspberry Pi using nginx and u
 * nginx is only set up to serve on port 80; if you want SSL (which you should) either drop in a new app.conf nginx config, or run an SSL proxy in front of it.
 
 ### Building on Raspberri Pi
-This image is set up for building on an x86_64 machine or automated building on dockerhub, so it will not build out of the box on a Raspberry Pi! Use these commands to backup the dockerfile and then modify it to build on a Pi:
-
-```Shell
-cp Dockerfile Dockerfile.x86_64
-sed -e 's|FROM.*|FROM resin/rpi-raspbian:jessie-20160831|' -e '/cross-build/d' -i Dockerfile
-```
+This image is set up for building on a 32-bit Rasbian.
 
 ## Usage
 
@@ -32,7 +27,7 @@ To create a container for your Flask app:
 4. Create a Dockerfile to build a container from this one, with your app and requirements:
 
     ```Dockerfile
-    FROM cseelye/rpi-nginx-uwsgi-flask:latest
+    FROM cyberdork33/rpi-nginx-uwsgi-flask:latest
     COPY myappdirectory /app
     RUN pip install -U -r /app/requirements.txt
     ```
