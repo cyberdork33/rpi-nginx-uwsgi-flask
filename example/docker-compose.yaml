@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  pi-site:
+    container_name: pi-site
+    hostname: pi-site
+    image: cyberdork33/rpi-nginx-uwsgi-flask
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./exampleapp:/app
+
+# networks:
+#   default:
+#     external:
+#       name: external_access
