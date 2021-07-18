@@ -13,6 +13,7 @@ RUN apt update && \
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY uwsgi-common.ini /etc/uwsgi/uwsgi-common.ini
 COPY app.conf /etc/nginx/conf.d/app.conf
+RUN rm /etc/nginx/sites-enabled/default
 
 WORKDIR /app
 CMD ["/usr/bin/supervisord"]
