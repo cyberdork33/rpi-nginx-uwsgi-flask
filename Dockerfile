@@ -5,8 +5,8 @@ FROM balenalib/rpi-raspbian:buster
 ## Install needed packages
 RUN apt update
 RUN apt --assume-yes full-upgrade
-RUN apt --assume-yes install python3 python3-pip
-RUN apt --assume-yes install supervisor uwsgi uwsgi-plugin-python3 nginx
+RUN install_packages python3 python3-pip
+RUN install_packages supervisor uwsgi uwsgi-plugin-python3 nginx
 RUN pip3 install flask
 RUN mkdir --parents /app
 RUN apt autoremove
